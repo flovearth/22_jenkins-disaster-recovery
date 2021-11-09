@@ -1,5 +1,5 @@
 # How to backup Jenkins data to AWS S3 with a Jenkins job.
-## This pipeline automatically copies Jenkins data to your AWS S3 bucket. You should add your AWS credentials to Jenkins beforehand. You can find the Jenkinsfile in the repo. 
+## This pipeline automatically copies Jenkins data to your AWS S3 bucket. You should add your AWS credentials to Jenkins beforehand. You can find the Jenkinsfile in the repo. Do not forget to change credentials-id, your-repo-name, and your S3 bucket name in the Jenkinsfile.
 
 Go to Jenkins Dashboard
 
