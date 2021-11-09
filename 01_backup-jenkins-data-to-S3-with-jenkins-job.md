@@ -18,6 +18,4 @@ Pipeline > Pipeline scriopt from SCM > Chooose your repo >
 
 Script Path > "Jenkinsfile"
 
-Apply
-
-
+Click Apply
