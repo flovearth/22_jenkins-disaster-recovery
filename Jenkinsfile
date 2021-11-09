@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Get Jenkinsfile') {
             steps {
-                git branch: 'dev', credentialsId: 'your-credentials-id', url: 'https://github.com/flovearth/22_jenkins-disaster-recovery.git'
+                git branch: 'dev', credentialsId: 'your-credentials-id-on-jenkins', url: 'https://github.com/flovearth/22_jenkins-disaster-recovery.git'
             }
         }
         stage('Run Script') {
