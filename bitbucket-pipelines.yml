@@ -1,0 +1,17 @@
+image: hashicorp/terraform
+pipelines:
+  custom:
+    restore-jenkins-on-aws:
+    - step:
+        name: Deploy on AWS
+        script:
+          # - pipe: atlassian/git-secrets-scan:0.4.3
+          - terraform init
+          - terraform plan
+          - terraform apply -auto-approve
+# # uncomment below section for tests.
+#         after-script:
+#           - echo "Sleeping"
+#           - sleep 10m
+#           - terraform destroy -auto-approve
+#           - echo "deploy completed..."    
