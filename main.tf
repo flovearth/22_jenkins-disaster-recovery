@@ -45,11 +45,11 @@ resource "aws_vpc" "jenkins-vpc" {
 
 # create instance and determine size of the server
 resource "aws_instance" "jenkins" {
-  ami             = "ami-0194c3e07668a7e36"
+  ami             = "ami-number"
   instance_type   = "t2.xlarge"
   iam_instance_profile = "${aws_iam_instance_profile.ec2_profile.name}"
   security_groups = [aws_security_group.jenkins.name]
-  key_name        = "jenkinskey"
+  key_name        = "jenkins-key-name"
   user_data = "${file("user-data-jenkins.sh")}"
 
   connection {
