@@ -1,0 +1,76 @@
+version: '3.7'
+
+services:
+  jenkins:
+    build: .  
+    image: finspire_jenkins:2.314
+    container_name: jenkins
+    privileged: true
+    restart: always
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    networks:
+      - finspire 
+    volumes:
+      - jenkins-log:/var/log/jenkins
+      - jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/docker/bind-mounts/jenkins/downloads:/var/jenkins_home/downloads
+      - /usr/bin/docker:/usr/bin/docker
+
+    environment:
+      - VIRTUAL_HOST=jenkins.finspire.tech
+      - VIRTUAL_PORT=8080
+      - JAVA_OPTS=-Xmx4g
+      - LETSENCRYPT_HOST=jenkins.finspire.tech
+      - LETSENCRYPT_EMAIL=admin@finspiretech.com
+        #- SSH_AUTH_SOCK=/ssh-agent
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:0.9
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /opt/nginx/conf:/etc/nginx/conf.d
+      - /opt/nginx/vhost:/etc/nginx/vhost.d
+      - /opt/nginx/htpasswd:/etc/nginx/htpasswd
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - /opt/nginx/certs/:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+    networks:
+      - finspire 
+  
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-proxy-le
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /opt/nginx/conf:/etc/nginx/conf.d
+      - /opt/nginx/vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - dhparam:/etc/nginx/dhparam
+      - /opt/nginx/certs/:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      NGINX_PROXY_CONTAINER: nginx-proxy
+    restart: always
+    networks:
+      - finspire
+
+volumes:
+  jenkins-log:
+  jenkins-data:
+  dhparam:
+  html:
+
+networks:
+  finspire:
+    name: finspire
+    driver: bridge
+
