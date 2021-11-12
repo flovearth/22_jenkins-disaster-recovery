@@ -3,7 +3,7 @@ version: '3.7'
 services:
   jenkins:
     build: .  
-    image: finspire_jenkins:2.314
+    image: my_jenkins:2.314
     container_name: jenkins
     privileged: true
     restart: always
@@ -11,7 +11,7 @@ services:
       - "50000:50000"
       - "8080:8080"
     networks:
-      - finspire 
+      - my-network 
     volumes:
       - jenkins-log:/var/log/jenkins
       - jenkins-data:/var/jenkins_home
@@ -20,11 +20,11 @@ services:
       - /usr/bin/docker:/usr/bin/docker
 
     environment:
-      - VIRTUAL_HOST=jenkins.finspire.tech
+      - VIRTUAL_HOST=jenkins.localhost
       - VIRTUAL_PORT=8080
       - JAVA_OPTS=-Xmx4g
-      - LETSENCRYPT_HOST=jenkins.finspire.tech
-      - LETSENCRYPT_EMAIL=admin@finspiretech.com
+      - LETSENCRYPT_HOST=jenkins.localhost
+      - LETSENCRYPT_EMAIL=email@domain.com
         #- SSH_AUTH_SOCK=/ssh-agent
 
   nginx-proxy:
@@ -43,7 +43,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: always
     networks:
-      - finspire 
+      - my-network 
   
   letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
@@ -61,7 +61,7 @@ services:
       NGINX_PROXY_CONTAINER: nginx-proxy
     restart: always
     networks:
-      - finspire
+      - my-network
 
 volumes:
   jenkins-log:
@@ -70,7 +70,7 @@ volumes:
   html:
 
 networks:
-  finspire:
-    name: finspire
+  my-network:
+    name: my-network
     driver: bridge
 
