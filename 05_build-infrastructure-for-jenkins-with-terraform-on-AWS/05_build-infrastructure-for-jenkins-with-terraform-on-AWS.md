@@ -1,7 +1,9 @@
-05_build-infrastructure-for-jenkins-with-terraform-on-AWS.md
+# How to build an infrastructure on AWS EC2 to run new Jenkins server with Terraform?
 
 
-We will use infrastructure as code to deploy the instance. We decided to utilize Terraform this time. Please make sure to add AWS variables to your local machine before running Terraforms scripts.
+## We will use infrastructure as code to deploy the instance. We decided to utilize Terraform this time. 
+
+Please make sure to add AWS variables to your local machine before running Terraforms scripts.
 
 ```
 AWS_ACCESS_KEY_ID: <AWS_ACCESS_KEY_ID>
