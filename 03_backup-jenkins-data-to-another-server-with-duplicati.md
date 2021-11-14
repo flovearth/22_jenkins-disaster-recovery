@@ -1,6 +1,6 @@
 # How to backup your Jenkins data to another server with Duplicati?
 
-http://<your_Public_IP>:8200/
+http://<your_Public_IP>:8200
 ## On user interface:
 - Add backup
 - Configure a new backup
