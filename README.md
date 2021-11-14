@@ -10,4 +10,4 @@ You can find the original article series at:
 
 [Part-4: How to backup and restore your Jenkins data — part 4]()
 
-This project is accomplished with the DevSecOps team which included: [Feyz SARI](https://github.com/flovearth) [Sezgin Erdem, Ph.D.](https://github.com/sezginerdem) and [E2415Mat](https://github.com/E2415Matt)
+This project is accomplished with the DevSecOps team which included: [Feyz SARI](https://github.com/flovearth),   [Sezgin Erdem, Ph.D.](https://github.com/sezginerdem) and [E2415Mat](https://github.com/E2415Matt)
