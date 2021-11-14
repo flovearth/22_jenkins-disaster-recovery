@@ -24,6 +24,7 @@ You will need to configure or create your own files like:
 
 [ec2-assume-policy.json](/ec2-assume-policy.json)
 
+All files you will need is [here](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS)
 
 On [main.tf](/main.tf) please make sure that your AMI is accurate so that EC2 operating system is desired Ubuntu 20.04. You can decide instance type depending on your workload, for illustration purposes instance type is shown here as t2.micro however probably you will want an instance with a much bigger capacity.
 
