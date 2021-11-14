@@ -11,12 +11,19 @@ AWS_DEFAULT_REGION: ‘eu-west-2’
 Terraform launches main resources such as VPC, security groups, subnets, EC2, etc.
 
 You will need to configure or create your own files like:
+
 [main.tf](/main.tf)
+
 [network.tf](/network.tf)
+
 [outputs.tf](/output.tf)
+
 [variables.tf](/variables.tf)
+
 [s3-full-policy.json](/s3-full-policy.json)
+
 [ec2-assume-policy.json](/ec2-assume-policy.json)
+
 
 On [main.tf](/main.tf) please make sure that your AMI is accurate so that EC2 operating system is desired Ubuntu 20.04. You can decide instance type depending on your workload, for illustration purposes instance type is shown here as t2.micro however probably you will want an instance with a much bigger capacity.
 
