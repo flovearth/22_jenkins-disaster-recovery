@@ -26,6 +26,17 @@ You will need to configure or create your own files like:
 
 All files you will need is [here](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS)
 
+
+when you run terraform with terraform apply command:
+
+- Terraform creates your infrastructure on AWS.
+- Then runs [user-data-jenkins.sh](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/user-data-jenkins.sh) script,
+- [This bash scripts](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/install_docker_and_docker_compose.sh) installs docker and docker-compose,
+- Install Letsencrypt, Nginx and Jenkins with [this script](22_jenkins-disaster-recovery/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/jenkins/),
+- Installs AWS CLI and copies backup data from S3 to EC2,
+- Then starts Jenkins.
+
+
 On [main.tf](/main.tf) please make sure that your AMI is accurate so that EC2 operating system is desired Ubuntu 20.04. You can decide instance type depending on your workload, for illustration purposes instance type is shown here as t2.micro however probably you will want an instance with a much bigger capacity.
 
 Once Terraform spins the EC2, we will clone the git repo, install Docker, Docker Compose, Jenkins and restore backup data from the s3 bucket using user-data. And finally, Terraform prints the EC2 instance / Jenkins server’s public IP address.
