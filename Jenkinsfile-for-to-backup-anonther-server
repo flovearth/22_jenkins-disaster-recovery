@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Get Jenkinsfile') {
+            steps {
+                git branch: 'dev', credentialsId: 'your-credentials-id-on-jenkins', url: 'https://github.com/flovearth/22_jenkins-disaster-recovery.git'
+            }
+        }
+        stage('Run Script') {
+            steps {
+                echo 'Synchronizing...'
+                script {
+                        sh '''
+                            rsync -avzh /var/jenkins_home root@<your-server-IP>:/jenkins_backup_files/
+                        '''
+                    }
+                }                
+            }
+        }
+        stage('Notification') {
+            steps {
+                echo 'Finished....'
+            }
+        }
+    }
+}
