@@ -3,7 +3,7 @@
 
 Go to Jenkins Dashboard
 
-New Item
+Select New Item
 
 Enter an item name "Daily backup of Jenkins to AWS S3"
 
