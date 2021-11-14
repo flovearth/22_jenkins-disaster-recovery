@@ -9,7 +9,6 @@ $ sudo docker pull linuxserver/duplicati
 $ sudo docker create --name=duplicati -p 8200:8200 -v ~/duplicati_home:/source -v duplicati-data:/data linuxserver/duplicati
 $ sudo docker start duplicati
 ```
-
 If you want to install Duplicati on an Ubuntu server you can run https://github.com/flovearth/22_jenkins-disaster-recovery/install-duplicati-on-ubuntu.sh file.
 
 When you run Duplicati on http://localhost:8200 
