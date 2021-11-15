@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone <enter-your-repo-link/restore-jenkins-on-aws>
+git clone <enter-your-bitbucket-repo-link/restore-jenkins-on-aws>
 cd /restore-jenkins-on-aws
 
 
