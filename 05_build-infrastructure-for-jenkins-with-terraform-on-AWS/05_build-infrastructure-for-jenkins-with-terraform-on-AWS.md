@@ -35,7 +35,7 @@ when you run terraform with terraform apply command:
 - Then runs [user-data-jenkins.sh](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/user-data-jenkins.sh) script,
 - [This bash scripts](/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/install_docker_and_docker_compose.sh) installs docker and docker-compose,
 - Install Letsencrypt, Nginx and Jenkins with [this script](22_jenkins-disaster-recovery/05_build-infrastructure-for-jenkins-with-terraform-on-AWS/jenkins/),
-- Installs AWS CLI and copies backup data from S3 to EC2,
+- Installs AWS CLI and restores backup data from S3 to EC2,
 - Then starts Jenkins.
 
 
@@ -46,3 +46,5 @@ Once Terraform spins the EC2, we will clone the git repo, install Docker, Docker
 Please copy the IP address and when you paste <ec2 public IP address>:8080 on your internet browser you should see your own Jenkins login page as the Jenkins on EC2 now using restored data from the S3 bucket.
 
 We decided that although this scenario works well, we still need to automate the process further so that the Jenkins recovery time can be minimized.
+
+In fact we restored the Jenkins with just adding a line of script at the end of the script.
