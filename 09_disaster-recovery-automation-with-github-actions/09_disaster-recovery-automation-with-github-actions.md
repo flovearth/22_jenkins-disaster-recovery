@@ -25,7 +25,6 @@ on:
   push:
     branches:
     - main
-…
 ```
 
 Therefore, on every push to the main branch of jenkins-disaster-recovery repo github actions will automatically run and as per terraform script all listed AWS resources will be deployed and public IP address of the EC2 instance will be displayed on the screen.
