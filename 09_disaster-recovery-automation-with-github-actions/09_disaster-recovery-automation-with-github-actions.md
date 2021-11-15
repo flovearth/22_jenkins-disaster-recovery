@@ -31,5 +31,5 @@ on:
 Therefore, on every push to the main branch of jenkins-disaster-recovery repo github actions will automatically run and as per terraform script all listed AWS resources will be deployed and public IP address of the EC2 instance will be displayed on the screen.
 
 
-Copy ec2 IP address from screen. And on internet browser search bar <ec2 public ip address>:8080, to login to Jenkins console and you should be able to login using credential from existing Jenkins master.
+Copy ec2 IP address from screen. And on internet browser search bar ec2-public-ip-address:8080 to login to Jenkins console and you should be able to login using credential from existing Jenkins master.
   
