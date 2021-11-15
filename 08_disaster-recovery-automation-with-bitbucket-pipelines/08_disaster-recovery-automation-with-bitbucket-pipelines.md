@@ -1,6 +1,6 @@
 # How to run a Jenkins Disaster Recovery with Bitbucket Pipeline?
 
-    We want to be able to restore Jenkins data which is resting on an S3 bucket with a Docker container running on an EC2 instance, and we want to have our Jenkins up and running quickly and with one-click automation.
+We want to be able to restore Jenkins data which is resting on an S3 bucket with a Docker container running on an EC2 instance, and we want to have our Jenkins up and running quickly and with one-click automation.
 
     We have mentioned in our previous article that Jenkins backup data is already resting on an S3 bucket and a Jenkins job synchronizes the data every day.
 
