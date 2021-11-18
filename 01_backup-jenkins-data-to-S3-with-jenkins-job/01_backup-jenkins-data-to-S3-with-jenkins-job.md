@@ -18,6 +18,6 @@ Pipeline > Pipeline scriopt from SCM > Chooose your repo >
 
 Script Path > "Jenkinsfile"
 
-Find [Jenkinsfile here](/Jenkinsfile)
+Find [Jenkinsfile here](/01_backup-jenkins-data-to-S3-with-jenkins-job/Jenkinsfile)
 
 Click Apply
