@@ -17,6 +17,6 @@ Pipeline > Pipeline script from SCM > Choose your repo >
 
 Script Path > "Jenkinsfile"
 
-Find Jenkinsfile here
+[Find Jenkinsfile here](/04_backup-jenkins-data-to-another-server-with-jenkins-job/Jenkinsfile-for-to-backup-anonther-server)
 
 Click Apply
